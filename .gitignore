@@ -47,3 +47,6 @@ local.settings.json
 .history/
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Terraform,AzureFunctions,VisualStudioCode
+
+# k8s
+kubeconfig.yaml

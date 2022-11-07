@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: 77599a10d793d3131823452b38a95172f6499f1c612138917984303ef053e832
+    cni.projectcalico.org/podIP: 10.2.1.2/32
+    cni.projectcalico.org/podIPs: 10.2.1.2/32
+  creationTimestamp: "2022-11-07T20:21:45Z"
+  labels:
+    run: endzajneks
+  name: endzajneks
+  namespace: default
+  resourceVersion: "1227"
+  uid: 86e284b1-29c0-431b-8d07-51abc3c1694f
+spec:
+  containers:
+  - image: nginx:latest
+    imagePullPolicy: Always
+    name: endzajneks
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-ds8v7
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: lke79380-122675-6369675b7714
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-ds8v7
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-07T20:21:45Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-07T20:21:59Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-07T20:21:59Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-11-07T20:21:45Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://d6fee7ff8590e3348348e08f1e053b18072be7c7dde65ddb9ff0eda44a86912c
+    image: nginx:latest
+    imageID: docker-pullable://nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f
+    lastState: {}
+    name: endzajneks
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2022-11-07T20:21:58Z"
+  hostIP: 192.168.129.207
+  phase: Running
+  podIP: 10.2.1.2
+  podIPs:
+  - ip: 10.2.1.2
+  qosClass: BestEffort
+  startTime: "2022-11-07T20:21:45Z"
