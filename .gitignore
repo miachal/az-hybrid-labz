@@ -50,3 +50,4 @@ local.settings.json
 
 # k8s
 kubeconfig.yaml
+kubusconfig.yaml

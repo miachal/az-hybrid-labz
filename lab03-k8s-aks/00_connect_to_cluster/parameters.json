@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceName": {
+            "value": "wsb-k8s"
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "dnsPrefix": {
+            "value": "wsb-k8s-dns"
+        },
+        "kubernetesVersion": {
+            "value": "1.23.12"
+        },
+        "networkPlugin": {
+            "value": "kubenet"
+        },
+        "enableRBAC": {
+            "value": true
+        },
+        "nodeResourceGroup": {
+            "value": "MC_wsb-lab03_wsb-k8s_westeurope"
+        },
+        "adminGroupObjectIDs": {
+            "value": []
+        },
+        "disableLocalAccounts": {
+            "value": false
+        },
+        "azureRbac": {
+            "value": false
+        },
+        "enablePrivateCluster": {
+            "value": false
+        },
+        "enableHttpApplicationRouting": {
+            "value": false
+        },
+        "enableAzurePolicy": {
+            "value": false
+        },
+        "enableSecretStoreCSIDriver": {
+            "value": false
+        },
+        "vmssNodePool": {
+            "value": true
+        }
+    }
+}

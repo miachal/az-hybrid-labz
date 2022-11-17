@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: secret1
+spec:
+  secretName: secret1
+  dnsNames:
+    - wsb-azure.motogang.pl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: Issuer
